@@ -28,6 +28,19 @@
                          v-decorator="['versionName', { rules: [{ required: true, message: 'Please input Version Name!' }] }]"
                 />
             </a-form-item>
+            <div>
+                <p>Target platform</p>
+                <a-form-item label="minSdkVersion" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+                    <a-input placeholder="minSdkVersion"
+                             v-decorator="['minSdkVersion', { rules: [{ required: true}] }]"
+                    />
+                </a-form-item>
+                <a-form-item label="targetSdkVersion" :label-col="{ span: 5 }" :wrapper-col="{ span: 12 }">
+                    <a-input placeholder="targetSdkVersion"
+                             v-decorator="['targetSdkVersion', { rules: [{ required: true}] }]"
+                    />
+                </a-form-item>
+            </div>
         </a-form>
     </div>
 </template>
@@ -57,6 +70,14 @@
                 ...this.versionName,
                 value: this.appInfo.versionName,
               }),
+              minSdkVersion: this.$form.createFormField({
+                ...this.minSdkVersion,
+                value: this.appInfo.usesSdk.minSdkVersion,
+              }),
+              targetSdkVersion: this.$form.createFormField({
+                ...this.targetSdkVersion,
+                value: this.appInfo.usesSdk.targetSdkVersion,
+              }),
 
             }
           },
@@ -77,6 +98,14 @@
           versionName: this.$form.createFormField({
             ...this.versionName,
             value: this.appInfo.versionName,
+          }),
+          minSdkVersion: this.$form.createFormField({
+            ...this.minSdkVersion,
+            value: this.appInfo.usesSdk.minSdkVersion,
+          }),
+          targetSdkVersion: this.$form.createFormField({
+            ...this.targetSdkVersion,
+            value: this.appInfo.usesSdk.targetSdkVersion,
           }),
 
         })

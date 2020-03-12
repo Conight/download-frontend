@@ -22,7 +22,7 @@
 </template>
 
 <script>
-  import ApkParser from 'app-info-parser'
+  import AppInfoParser from 'app-info-parser'
   import AppInfoForm from './AppInfoForm.vue'
 
   export default {
@@ -46,7 +46,7 @@
         if (e.target.files.length > 0) {
           self.loading = true
           self.fileInfo = e.target.files[0]
-          const parser = new ApkParser(self.fileInfo)
+          const parser = new AppInfoParser(self.fileInfo)
           parser.parse().then(result => {
             self.appInfo = result
             console.log(self.appInfo)
